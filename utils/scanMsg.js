@@ -42,11 +42,17 @@ module.exports = async function (msg) {
       : "";
 
     //description
-    let description = labels.length
-      ? /\ - (.*?)\ - /g.exec(msg.content)[0]
+    description = labels.length
+      ? /(?<=..... - )[^\[]+/.exec(msg.content)[0]
       : /(?<=([^-]*- ){2}).*/.exec(msg.content)[0];
 
-    return { title, description, labels, author, prio };
+    //image
+    if (msg.attachments.size) {
+      image = msg.attachments.values().next().value.proxyURL;
+      console.log("image : ", image);
+    }
+
+    return { title, description, labels, author, prio, image };
   } catch (error) {
     console.log("error : ", error.message);
   }
