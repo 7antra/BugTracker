@@ -9,7 +9,7 @@ const Clubhouse = require("clubhouse-lib");
 
 // CLUBHOUSE
 const ch = Clubhouse.create(process.env.CLUBHOUSE_API_TOKEN);
-
+//ch.listLabels().then(console.log);
 // DISCORD
 
 client.on("ready", () => {
@@ -55,11 +55,21 @@ client.on("message", async (msg) => {
                   story_type: "bug",
                   name: `BugTracker | ${title}`,
                   description: image
-                    ? `![Screenshot](${image}) \n \n ${description} \n ${author}`
-                    : `${description} \n ${author}`,
-                }).then(console.log);
-                msg.reply("C'est en route pour être résolu !");
-                msg.react("✅");
+                    ? `![Screenshot](${image}) \n \n ${description} \n ${author.username}`
+                    : `${description} \n ${author.username}`,
+                  //labels: ["vie privée"],
+                })
+                  .then(() => {
+                    msg.reply("C'est en route pour être résolu !");
+                    msg.react("✅");
+                  })
+                  .catch(() => {
+                    message.delete();
+                    msg.react("⛔");
+                    msg.reply(
+                      "Oups, le serveur grille, prévenir yann ! viteeeee !!!"
+                    );
+                  });
               } else {
                 message.delete();
                 msg.react("⛔");

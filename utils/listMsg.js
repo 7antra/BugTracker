@@ -2,7 +2,7 @@
 module.exports = {
   aide: `
 
-    🐞
+    🐞 (v.0.1)
 
     *Pour ajouter un nouveau bug à la (longue) liste que les développeurs devront se taper dans la semaine ; 
     merci de respecter ce pattern et faire preuve de politesse, de tact, de bienveillance, 
@@ -17,14 +17,16 @@ module.exports = {
 
     *C'est le mininum pour être valide, ensuite, si en plus tu veux être génial et avoir ton grade de chasseur de bug niveau 1, 
     tu peux ajouter un fichier (en même temps que le pattern sus-visé : sinon ça n'sert à rien.) 
-    Et alors là, le graal : tu peux aussi ajouter des labels et différent niveau de priorité (1-4) comme ceci -> *
+    Et bientôt, le graal : tu pourras aussi ajouter des labels et différent niveau de priorité (1-4) comme ceci -> *
 
 
-    \`BUG! - Titre synthétisé avec intelligence - Une description élégante, idéale pour un dev à la tête dans le (‿ˠ‿)‎ le lundi matin, etc. [graphic] [2] \`
+    \`BUG! - Titre synthétisé avec intelligence - Une description élégante, idéale pour un dev avec la tête dans le (‿ˠ‿)‎ le lundi matin. [graphic] [2] \`
 
     Une fois envoyé, vous avez un aperçu
 
-    ⚠️ N'oubliez pas de valider votre carte grâce au emoji en dessous de l'aperçu pour qu'elle soit envoyée sur Clubhouse ! Sinon faut tout refaire. Et ouais.
+    ⚠️ N'oubliez pas de valider votre carte grâce aux emojis en dessous de l'aperçu pour qu'elle soit envoyée sur Clubhouse ! Sinon faut tout refaire. Et ouais.
+
+    (comming soon ...)
 
     __Liste des labels :__ 
 
@@ -43,16 +45,16 @@ module.exports = {
           Story        |  ${obj.title.toLocaleUpperCase()}
           Description  |  ${obj.description}        
           Image        |  ${obj.image ? "👌" : "❌"}
-          Labels       |  ${obj.labels}
           Priorité     |  ${
             obj.prio === 1
-              ? "🚨"
-              : obj.prio === 2
               ? "🔥"
+              : obj.prio === 2
+              ? "⚡"
               : obj.prio === 3
               ? "⌛"
               : "🍹"
           }
+          Labels       |  ${obj.labels} (comming soon...)
           -            |
           Chasseur     |  ${obj.author.username}
           \`\`\`

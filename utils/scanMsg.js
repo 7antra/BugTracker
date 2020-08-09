@@ -49,7 +49,6 @@ module.exports = async function (msg) {
     //image
     if (msg.attachments.size) {
       image = msg.attachments.values().next().value.proxyURL;
-      console.log("image : ", image);
     }
 
     return { title, description, labels, author, prio, image };
